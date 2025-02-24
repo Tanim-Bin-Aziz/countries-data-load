@@ -9,7 +9,8 @@ const Countries = () => {
 
   const handleVisitedCountry = (country) => {
     console.log("add this to your visited country");
-    console.log(country);
+    const newVisitedCountries = [...visitedCountries, country];
+    setVisitedCountries(newVisitedCountries);
   };
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Countries = () => {
     <div>
       <h3>Countires : {countries.length}</h3>
       <div>
-        <h5>Visited Countries</h5>
+        <h5>Visited Countries: {visitedCountries.length}</h5>
         <ul></ul>
       </div>
       <div className="countries-container">
