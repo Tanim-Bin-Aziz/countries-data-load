@@ -19,7 +19,9 @@ const Country = ({ country, handleVisitedCountry }) => {
       <p>population : {population}</p>
       <p>area : {area}</p>
       <small>Code : {cca3}</small>
-      <button onClick={handleVisitedCountry}>Mark Visited</button>
+      <button onClick={() => handleVisitedCountry(country)}>
+        Mark Visited
+      </button>
       <button onClick={handleVisited}>{visited ? "Visited" : "Going"}</button>
       {visited ? "I have visited" : " I want to visit"}
     </div>
