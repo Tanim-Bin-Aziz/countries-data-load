@@ -6,11 +6,17 @@ import "./Countries.css";
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [visitedCountries, setVisitedCountries] = useState([]);
+  const [visitedFlags, setVisitedFlags] = useState([]);
 
   const handleVisitedCountry = (country) => {
     console.log("add this to your visited country");
     const newVisitedCountries = [...visitedCountries, country];
     setVisitedCountries(newVisitedCountries);
+  };
+
+  const handleVisitedFlags = (flag) => {
+    const newVisitedFlags = [...visitedFlags, flag];
+    setVisitedFlags(newVisitedFlags);
   };
 
   useEffect(() => {
@@ -29,12 +35,18 @@ const Countries = () => {
           ))}
         </ul>
       </div>
+      <div className="flag-container">
+        {visitedFlags.map((flag, idx) => (
+          <img key={idx} src={flag}></img>
+        ))}
+      </div>
       <div className="countries-container">
         {countries.map((country) => (
           <Country
             key={country.cca3}
             country={country}
             handleVisitedCountry={handleVisitedCountry}
+            handleVisitedFlags={handleVisitedFlags}
           ></Country>
         ))}
       </div>
